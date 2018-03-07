@@ -1,9 +1,12 @@
 defmodule TeternikovWeb.ErrorView do
   use TeternikovWeb, :view
 
-  def render("404.html", _assigns) do
-    "Page not found"
-  end
+  # def render("404.html", _assigns) do
+    # render @view_module, @view_template, Map.put(assigns, :layout, {TeternikovWeb.LayoutView, "app.html"})
+    # render(conn, "show_by_url.html", page: page, title: page.title, nested: "one-solid-box.html")
+  #   render()
+  #   "Page not found"
+  # end
 
   def render("500.html", _assigns) do
     "Internal server error"

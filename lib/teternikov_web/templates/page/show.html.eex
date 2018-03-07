@@ -1,0 +1,23 @@
+<h2>Show Page</h2>
+
+<ul>
+
+  <li>
+    <strong>Url:</strong>
+    <%= @page.url %>
+  </li>
+
+  <li>
+    <strong>Title:</strong>
+    <%= @page.title %>
+  </li>
+
+  <li>
+    <strong>Body:</strong>
+    <%= @page.body %>
+  </li>
+
+</ul>
+
+<span><%= link "Edit", to: page_path(@conn, :edit, @page) %></span>
+<span><%= link "Back", to: page_path(@conn, :index) %></span>

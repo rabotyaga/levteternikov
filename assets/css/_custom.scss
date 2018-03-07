@@ -1,0 +1,122 @@
+.transparent-background {
+  background: transparent;
+}
+#totop {
+  position: fixed;
+  bottom: 6%;
+  right: 1.5%;
+  display: none;
+  z-index: 9999;
+  background: transparent;
+  border: 3px solid #3C3C3C;
+  border-radius: 50%;
+  height: 50px;
+  width: 50px;
+  text-align: center;
+}
+#totop i {
+  color: #3C3C3C;
+  line-height: 43px;
+  font-size: 33px;
+}
+#totop:hover {
+  background: #3C3C3C;
+}
+#totop:hover i {
+  color: #ffffff;
+}
+.center
+{
+  z-index: 1000;
+  margin: 300px auto;
+  padding: 10px;
+  width: 130px;
+  background-color: rgba(255, 255, 255, 0);
+  border-radius: 10px;
+  filter: alpha(opacity=100);
+  opacity: 1;
+  -moz-opacity: 1;
+}
+
+body {
+  padding-top: 50px;
+}
+
+nav.navbar.navbar-fixed-top {
+  border-bottom: solid 1px lightgray;
+}
+
+@media (max-width: 767px) /* @grid-float-breakpoint -1 */
+{
+  .navbar-fixed-top
+  {
+    position: relative;
+    top: auto;
+  }
+  body {
+    padding-top: 0px;
+  }
+}
+
+/*@media (min-width: 768px) {
+  // 768-992
+  nav.navbar {
+    max-height: 50px;
+    overflow: hidden;
+  }
+}*/
+
+.box.box-solid > .box-header > .title > h3 > a:hover {
+  background: transparent !important;
+}
+
+.box-body > .image.featured img {
+  -moz-transition:-moz-transform 0.2s ease-out;
+  -webkit-transition:-webkit-transform 0.2s ease-out;
+  -ms-transition:-ms-transform 0.2s ease-out;
+  -o-transition:-o-transform 0.2s ease-out;
+  transition:transform 0.2s ease-out;
+}
+
+.box-body > .image.featured:hover img {
+  -moz-transform:scale(1.05);
+  -webkit-transform:scale(1.05);
+  -ms-transform:scale(1.05);
+  -o-transform:scale(1.05);
+  transform:scale(1.05)
+}
+
+.image.featured img {
+  width: 100%;
+}
+
+.image.featured {
+  overflow: hidden;
+  display: inline-block;
+  width: 100%;
+}
+
+.content-wrapper {
+  background: url('/images/bg.jpg') no-repeat center fixed;
+  background-size: cover;
+}
+
+/*
+
+.vcenter {
+  display: inline-block;
+  vertical-align: middle;
+  float: none;
+}
+
+.extra-v-padding {
+  padding-top:7px;
+  padding-bottom:7px;
+}*/
+
+.social .vk {
+  float: left;
+}
+.social .fb {
+  float: right;
+}

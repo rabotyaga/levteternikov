@@ -1,35 +1,88 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta name="description" content="">
-    <meta name="author" content="">
-
-    <title>Hello Teternikov!</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <title><%= assigns[:title] || "Искусство любить Школа Льва Тетерникова Тантры и Йоги" %></title>
+    <meta name="description" content="<%= (assigns[:title] || "") <> " Искусство любить Школа Льва Тетерникова Тантры и Йоги" %>">
+    <meta name="keywords" content="<%= (assigns[:title] || "") <> " тантра, йога, парная, с партнером, хатха, кундалини, шакти, шива, искусство любить, лев, тетерников, рэйки, мужчина и женщина, интегральный, личностный, развитие, духовный, тренинг, семинар, регулярные занятия, школа, трансцендентальный, опыт, взаимоотношения, семья, сексуальность, духовность" %>">
+    <meta property="og:url" content="<%= TeternikovWeb.Router.Helpers.url(@conn) <> @conn.request_path %>">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="<%= assigns[:title] || "Искусство любить Школа Льва Тетерникова Тантры и Йоги"%>">
+    <meta property="og:image" content="<%= static_path(@conn, "/images/logo_small.jpg") %>">
     <link rel="stylesheet" href="<%= static_path(@conn, "/css/app.css") %>">
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+    <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
+    <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+    <script src="//vk.com/js/api/openapi.js?142"></script>
+    <script src="//vk.com/js/api/share.js?94" charset="windows-1251"></script>
   </head>
-
-  <body>
-    <div class="container">
-      <header class="header">
-        <nav role="navigation">
-          <ul class="nav nav-pills pull-right">
-            <li><a href="http://www.phoenixframework.org/docs">Get Started</a></li>
-          </ul>
-        </nav>
-        <span class="logo"></span>
-      </header>
-
-      <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
-      <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>
-
-      <main role="main">
-        <%= render @view_module, @view_template, assigns %>
-      </main>
-
-    </div> <!-- /container -->
+  <body class='hold-transition skin-blue layout-top-nav'>
+    <!-- BEGIN BACK TO TOP -->
+    <a href='#' id='totop'>
+      <i class='fa fa-angle-up'></i>
+    </a>
+    <!-- END BACK TO TOP -->
+    <div class='wrapper'>
+      <%= render TeternikovWeb.LayoutView, "_header.html", assigns %>
+      <%= render TeternikovWeb.LayoutView, "_metrika.html", assigns %>
+      <%= render TeternikovWeb.LayoutView, "_analytics.html", assigns %>
+      <%= render TeternikovWeb.LayoutView, "_fb.html", assigns %>
+      <%= render TeternikovWeb.LayoutView, "_pixel.html", assigns %>
+      <div class='content-wrapper'>
+        <div class='container'>
+          <section class='content-header text-center'>
+            <h1>
+              <strong class='visible-sm-block visible-md-block visible-lg-block'>
+                ИСКУССТВО ЛЮБИТЬ
+              </strong>
+              <p>
+                <small>
+                  <em>
+                    Школа Льва Тетерникова
+                  </em>
+                </small>
+              </p>
+            </h1>
+            <%= img_tag(static_path(@conn, "/images/logo_small.jpg"), style: "padding-bottom:10px;") %>
+            <h1>
+              Школа, где человек учится жить, исходя из чувства любви
+            </h1>
+          </section>
+          <!-- Main content -->
+          <section class='content'>
+            <div class='modal' style='display: none'>
+              <div class='center'>
+                <i class='fa fa-spinner fa-pulse fa-5x fa-fw margin-bottom'></i>
+                <span class='sr-only'>Loading...</span>
+              </div>
+            </div>
+            <%= if assigns[:nested] do %>
+              <%= render @view_module, @view_template, Map.put(assigns, :layout, {TeternikovWeb.LayoutView, assigns.nested}) %>
+            <% else %>
+              <%= render @view_module, @view_template, assigns %>
+            <% end %>
+          </section>
+        </div>
+      </div>
+      <footer class='main-footer'>
+        <div class='container'>
+          <p class='copyright pull-right'>
+            © levteternikov.ru
+          </p>
+          <p>
+            Тел. +7 (925) 456-96-29. Время работы: будни с 10:00 до 20:00, выходные - с 11:00 до 15:00. saluthelen@yandex.ru
+          </p>
+          <p>
+            Йога с партнером, парная йога, хатха йога, тантра йога
+          </p>
+        </div>
+      </footer>
+    </div>
     <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
   </body>
 </html>

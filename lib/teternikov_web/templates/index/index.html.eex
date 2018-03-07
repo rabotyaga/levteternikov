@@ -1,0 +1,111 @@
+<div id='main'>
+  <%= Phoenix.HTML.raw(@page.body) %>
+  <div class='row'>
+    <div class='col-md-6'>
+      <div class='box box-solid'>
+        <div class='box-body'>
+          <a class='image featured' href='/yoga_with_partner'>
+            <%= img_tag(static_path(@conn, "/images/yoga2.jpg")) %>
+          </a>
+          <a href='/yoga_with_partner'>
+            <h4>
+              Йога с партнером
+            </h4>
+          </a>
+        </div>
+        <div class='box-footer'>
+          <div class='social'>
+            <div class='vk'>
+              <script>
+                document.write(VK.Share.button({url: "<%= TeternikovWeb.Router.Helpers.url(@conn) %>/yoga_with_partner"},{type: "link", text: "Сохранить"}));
+              </script>
+            </div>
+            <div class='fb'>
+              <div class='fb-like' data-href="<%= TeternikovWeb.Router.Helpers.url(@conn) %>/yoga_with_partner" data-layout="button_count" data-action="like" data-show-faces="false" data-share="true"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class='col-md-6'>
+      <div class='box box-solid'>
+        <div class='box-body'>
+          <a class='image featured' href='/family'>
+            <%= img_tag(static_path(@conn, "/images/yoga5.jpg")) %>
+          </a>
+          <a href='/family'>
+            <h4>
+              Семья - искусство любить
+            </h4>
+          </a>
+        </div>
+        <div class='box-footer'>
+          <div class='social'>
+            <div class='vk'>
+              <script>
+                document.write(VK.Share.button({url: "<%= TeternikovWeb.Router.Helpers.url(@conn) %>/family"},{type: "link", text: "Сохранить"}));
+              </script>
+            </div>
+            <div class='fb'>
+              <div class='fb-like' data-href="<%= TeternikovWeb.Router.Helpers.url(@conn) %>/family" data-layout="button_count" data-action="like" data-show-faces="false" data-share="true"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class='row'>
+    <div class='col-md-6'>
+      <div class='box box-solid'>
+        <div class='box-body'>
+          <a class='image featured' href='/sexuality_and_spirituality'>
+            <%= img_tag(static_path(@conn, "/images/yoga1.jpg")) %>
+          </a>
+          <a href='/sexuality_and_spirituality'>
+            <h4>
+              Сексуальность и духовность
+            </h4>
+          </a>
+        </div>
+        <div class='box-footer'>
+          <div class='social'>
+            <div class='vk'>
+              <script>
+                document.write(VK.Share.button({url: "<%= TeternikovWeb.Router.Helpers.url(@conn) %>/sexuality_and_spirituality"},{type: "link", text: "Сохранить"}));
+              </script>
+            </div>
+            <div class='fb'>
+              <div class='fb-like' data-href="<%= TeternikovWeb.Router.Helpers.url(@conn) %>/sexuality_and_spirituality" data-layout="button_count" data-action="like" data-show-faces="false" data-share="true"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class='col-md-6'>
+      <div class='box box-solid'>
+        <div class='box-body'>
+          <a class='image featured' href='/art_of_being_woman'>
+            <%= img_tag(static_path(@conn, "/images/244579551.jpg")) %>
+          </a>
+          <a href='/art_of_being_woman'>
+            <h4>
+              Искусство быть женщиной
+            </h4>
+          </a>
+        </div>
+        <div class='box-footer'>
+          <div class='social'>
+            <div class='vk'>
+              <script>
+                document.write(VK.Share.button({url: "<%= TeternikovWeb.Router.Helpers.url(@conn) %>/art_of_being_woman"},{type: "link", text: "Сохранить"}));
+              </script>
+            </div>
+            <div class='fb'>
+              <div class='fb-like' data-href="<%= TeternikovWeb.Router.Helpers.url(@conn) %>/art_of_being_woman" data-layout="button_count" data-action="like" data-show-faces="false" data-share="true"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

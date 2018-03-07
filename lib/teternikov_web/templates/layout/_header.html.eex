@@ -1,0 +1,62 @@
+<header class='main-header'>
+  <nav class='navbar navbar-fixed-top'>
+    <div class='container'>
+      <div class='navbar-header'>
+        <a class='navbar-brand hidden-sm' href='/'>
+          <b>ИСКУССТВО ЛЮБИТЬ</b>
+        </a>
+        <button class='navbar-toggle collapsed' data-target='#navbar-collapse' data-toggle='collapse' type='button'>
+          <i class='fa fa-bars'></i>
+        </button>
+      </div>
+      <div class='collapse navbar-collapse pull-left' id='navbar-collapse'>
+        <ul class='nav navbar-nav'>
+          <li>
+            <a href='/'>
+              Главная
+              <span class='sr-only'>(current)</span>
+            </a>
+          </li>
+          <li>
+            <a href='/schedule'>Расписание</a>
+          </li>
+          <li class='dropdown'>
+            <a class='dropdown-toggle' data-toggle='dropdown' href='/about'>
+              О школе
+              <span class='caret'></span>
+            </a>
+            <ul class='dropdown-menu' role='menu'>
+              <li>
+                <a href='/about'>Задачи, принципы, направление</a>
+              </li>
+              <li>
+                <a href='/lev'>Лев Тетерников</a>
+              </li>
+              <li>
+                <a href='/instructors'>Преподаватели</a>
+              </li>
+              <li>
+                <a href='/reviews'>Отзывы</a>
+              </li>
+              <li>
+                <a href='/press'>Пресса о нас</a>
+              </li>
+            </ul>
+          </li>
+          <li>
+            <a href='/tantra'>Тантра</a>
+          </li>
+          <li>
+            <a href='/reiki/index'>Рэйки</a>
+          </li>
+          <li>
+            <a href='/contacts'>Контакты</a>
+          </li>
+          <li>
+            <a href='/library'>Библиотека</a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>

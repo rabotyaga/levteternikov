@@ -1,0 +1,9 @@
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,600,700,300italic,400italic,600italic);
+
+$icon-font-path: "/fonts/"; /* use fonts from priv/static/fonts/ */
+@import "bootstrap"; /* imports node_modules/bootstrap-sass/assets/stylesheets/_bootstrap.scss */
+
+/* Custom Stuff */
+@import 'node_modules/admin-lte/dist/css/AdminLTE.min',
+'node_modules/admin-lte/dist/css/skins/skin-blue';
+@import "custom";
