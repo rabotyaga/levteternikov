@@ -26,13 +26,13 @@ defmodule TeternikovWeb.ConnCase do
     end
   end
 
-
   setup tags do
     :ok = Ecto.Adapters.SQL.Sandbox.checkout(Teternikov.Repo)
+
     unless tags[:async] do
       Ecto.Adapters.SQL.Sandbox.mode(Teternikov.Repo, {:shared, self()})
     end
+
     {:ok, conn: Phoenix.ConnTest.build_conn()}
   end
-
 end

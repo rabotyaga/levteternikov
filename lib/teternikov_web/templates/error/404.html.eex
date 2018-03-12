@@ -1,1 +1,0 @@
-<%= render @view_module, "not_found.html", Map.put(assigns, :layout, {TeternikovWeb.LayoutView, "app.html"}) |> Map.put(:nested, "one-solid-box.html") %>

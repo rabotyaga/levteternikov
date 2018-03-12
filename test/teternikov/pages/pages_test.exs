@@ -7,7 +7,11 @@ defmodule Teternikov.PagesTest do
     alias Teternikov.Pages.Page
 
     @valid_attrs %{body: "some body", title: "some title", url: "some url"}
-    @update_attrs %{body: "some updated body", title: "some updated title", url: "some updated url"}
+    @update_attrs %{
+      body: "some updated body",
+      title: "some updated title",
+      url: "some updated url"
+    }
     @invalid_attrs %{body: nil, title: nil, url: nil}
 
     def page_fixture(attrs \\ %{}) do

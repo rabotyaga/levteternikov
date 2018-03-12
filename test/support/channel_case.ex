@@ -25,13 +25,13 @@ defmodule TeternikovWeb.ChannelCase do
     end
   end
 
-
   setup tags do
     :ok = Ecto.Adapters.SQL.Sandbox.checkout(Teternikov.Repo)
+
     unless tags[:async] do
       Ecto.Adapters.SQL.Sandbox.mode(Teternikov.Repo, {:shared, self()})
     end
+
     :ok
   end
-
 end

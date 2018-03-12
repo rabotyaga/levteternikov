@@ -2,11 +2,10 @@ defmodule Teternikov.Pages.Page do
   use Ecto.Schema
   import Ecto.Changeset
 
-
   schema "pages" do
-    field :body, :string
-    field :title, :string
-    field :url, :string
+    field(:body, :string)
+    field(:title, :string)
+    field(:url, :string)
 
     timestamps()
   end

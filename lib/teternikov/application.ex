@@ -11,7 +11,7 @@ defmodule Teternikov.Application do
       # Start the Ecto repository
       supervisor(Teternikov.Repo, []),
       # Start the endpoint when the application starts
-      supervisor(TeternikovWeb.Endpoint, []),
+      supervisor(TeternikovWeb.Endpoint, [])
       # Start your own worker by calling: Teternikov.Worker.start_link(arg1, arg2, arg3)
       # worker(Teternikov.Worker, [arg1, arg2, arg3]),
     ]
