@@ -59,6 +59,16 @@ config :logger, level: :info
 #     config :teternikov, TeternikovWeb.Endpoint, server: true
 #
 
-# Finally import the config/prod.secret.exs
-# which should be versioned separately.
-import_config "prod.secret.exs"
+config :teternikov, TeternikovWeb.Endpoint,
+  load_from_system_env: true,
+  server: true,
+  secret_key_base: "${SECRET_KEY_BASE}",
+  url: [host: "levteternikov.ru", port: 80],
+  cache_static_manifest: "priv/static/cache_manifest.json"
+
+config :teternikov, Teternikov.Repo,
+  adapter: Ecto.Adapters.Postgres,
+  url: "${DATABASE_URL}",
+  database: "",
+  ssl: true,
+  pool_size: 1
