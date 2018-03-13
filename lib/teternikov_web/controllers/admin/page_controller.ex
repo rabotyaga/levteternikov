@@ -4,6 +4,8 @@ defmodule TeternikovWeb.AdminPageController do
   alias Teternikov.Pages
   alias Teternikov.Pages.Page
 
+  plug(:put_layout, "one-solid-box.html")
+
   def index(conn, _params) do
     pages = Pages.list_pages()
     render(conn, "index.html", pages: pages)

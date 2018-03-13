@@ -1,0 +1,20 @@
+          </section>
+        </div>
+      </div>
+      <footer class='main-footer'>
+        <div class='container'>
+          <p class='copyright pull-right'>
+            © levteternikov.ru
+          </p>
+          <p>
+            Тел. +7 (925) 456-96-29. Время работы: будни с 10:00 до 20:00, выходные - с 11:00 до 15:00. saluthelen@yandex.ru
+          </p>
+          <p>
+            Йога с партнером, парная йога, хатха йога, тантра йога
+          </p>
+        </div>
+      </footer>
+    </div>
+    <script src="<%= static_path(@conn, "/js/app.js") %>"></script>
+  </body>
+</html>
