@@ -2,7 +2,6 @@ defmodule TeternikovWeb.PageController do
   use TeternikovWeb, :controller
 
   alias Teternikov.Pages
-  alias Teternikov.Pages.Page
 
   plug(:put_layout, "one-solid-box.html")
 
