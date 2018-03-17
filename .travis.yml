@@ -11,3 +11,10 @@ before_script:
 
 script:
   - mix format --check-formatted && mix test
+
+deploy:
+  provider: script
+  script: bash deploy.sh
+  on:
+    branch: master
+
