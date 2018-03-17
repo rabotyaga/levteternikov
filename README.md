@@ -1,3 +1,5 @@
+[![Build Status](https://travis-ci.org/rabotyaga/levteternikov.svg?branch=master)](https://travis-ci.org/rabotyaga/levteternikov)
+
 # Teternikov
 
 To start your Phoenix server:
