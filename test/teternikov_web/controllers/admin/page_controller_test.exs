@@ -21,8 +21,16 @@ defmodule TeternikovWeb.AdminPageControllerTest do
   end
 
   defp login(%{conn: conn}) do
-    user = User.changeset(%User{}, %{name: "test", email: "test@example.com", password: "test", password_confirmation: "test"})
-    |> Repo.insert!
+    user =
+      User.changeset(%User{}, %{
+        name: "admin",
+        email: "admin@example.com",
+        password: "test",
+        password_confirmation: "test",
+        admin: true
+      })
+      |> Repo.insert!()
+
     {:ok, conn: assign(conn, :current_user, user)}
   end
 
@@ -34,6 +42,22 @@ defmodule TeternikovWeb.AdminPageControllerTest do
     test "lists all pages", %{conn: conn} do
       conn = get(conn, admin_page_path(conn, :index))
       assert html_response(conn, 200) =~ "Listing Pages"
+    end
+
+    test "does not allow access for non admin users" , %{conn: conn} do
+      user =
+        User.changeset(%User{}, %{
+          name: "test",
+          email: "test@example.com",
+          password: "test",
+          password_confirmation: "test"
+        })
+        |> Repo.insert!()
+
+      conn = assign(conn, :current_user, user)
+      conn = get(conn, admin_page_path(conn, :index))
+      assert redirected_to(conn) == "/"
+      # assert html_response(conn, 200) =~ "Listing Pages"
     end
   end
 
@@ -51,10 +75,12 @@ defmodule TeternikovWeb.AdminPageControllerTest do
       assert %{id: id} = redirected_params(conn)
       assert redirected_to(conn) == admin_page_path(conn, :show, id)
       saved_assigns = conn.assigns
-      conn = 
+
+      conn =
         conn
         |> recycle()
         |> Map.put(:assigns, saved_assigns)
+
       conn = get(conn, admin_page_path(conn, :show, id))
       assert html_response(conn, 200) =~ "Show Page"
     end
@@ -81,10 +107,12 @@ defmodule TeternikovWeb.AdminPageControllerTest do
       conn = put(conn, admin_page_path(conn, :update, page), page: @update_attrs)
       assert redirected_to(conn) == admin_page_path(conn, :show, page)
       saved_assigns = conn.assigns
-      conn = 
+
+      conn =
         conn
         |> recycle()
         |> Map.put(:assigns, saved_assigns)
+
       conn = get(conn, admin_page_path(conn, :show, page))
       assert html_response(conn, 200) =~ "some updated body"
     end
@@ -102,10 +130,12 @@ defmodule TeternikovWeb.AdminPageControllerTest do
       conn = delete(conn, admin_page_path(conn, :delete, page))
       assert redirected_to(conn) == admin_page_path(conn, :index)
       saved_assigns = conn.assigns
-      conn = 
+
+      conn =
         conn
         |> recycle()
         |> Map.put(:assigns, saved_assigns)
+
       assert_error_sent(404, fn ->
         get(conn, admin_page_path(conn, :show, page))
       end)

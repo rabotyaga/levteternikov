@@ -4,6 +4,16 @@ defmodule TeternikovWeb.AdminPageController do
   alias Teternikov.Pages
   alias Teternikov.Pages.Page
 
+  plug(:authorize)
+
+  defp authorize(conn, _) do
+    if conn.assigns[:current_user].admin do
+      conn
+    else
+      conn |> put_flash(:info, "You can't access that page") |> redirect(to: "/") |> halt()
+    end
+  end
+
   def index(conn, _params) do
     pages = Pages.list_pages()
     render(conn, "index.html", pages: pages)

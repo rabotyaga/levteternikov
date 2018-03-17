@@ -6,6 +6,7 @@ defmodule Teternikov.Coherence.User do
   schema "users" do
     field(:name, :string)
     field(:email, :string)
+    field(:admin, :boolean)
     coherence_schema()
 
     timestamps()
@@ -13,7 +14,7 @@ defmodule Teternikov.Coherence.User do
 
   def changeset(model, params \\ %{}) do
     model
-    |> cast(params, [:name, :email] ++ coherence_fields())
+    |> cast(params, [:name, :email, :admin] ++ coherence_fields())
     |> validate_required([:name, :email])
     |> validate_format(:email, ~r/@/)
     |> unique_constraint(:email)
