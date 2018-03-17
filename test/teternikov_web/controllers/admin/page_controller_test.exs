@@ -44,7 +44,7 @@ defmodule TeternikovWeb.AdminPageControllerTest do
       assert html_response(conn, 200) =~ "Listing Pages"
     end
 
-    test "does not allow access for non admin users" , %{conn: conn} do
+    test "does not allow access for non admin users", %{conn: conn} do
       user =
         User.changeset(%User{}, %{
           name: "test",
