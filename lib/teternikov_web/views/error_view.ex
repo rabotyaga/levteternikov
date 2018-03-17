@@ -2,12 +2,11 @@ defmodule TeternikovWeb.ErrorView do
   use TeternikovWeb, :view
 
   def render("404.html", assigns) do
-    assigns =
-      assigns
-      |> Map.put(:layout, {TeternikovWeb.LayoutView, "app.html"})
-      |> Map.put(:nested, "one-solid-box.html")
-
-    render(TeternikovWeb.ErrorView, "not_found.html", assigns)
+    render(
+      TeternikovWeb.ErrorView,
+      "not_found.html",
+      Map.put(assigns, :layout, {TeternikovWeb.LayoutView, "one-solid-box.html"})
+    )
   end
 
   def render("500.html", _assigns) do

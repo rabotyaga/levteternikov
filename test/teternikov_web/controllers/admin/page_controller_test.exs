@@ -1,7 +1,10 @@
 defmodule TeternikovWeb.AdminPageControllerTest do
+  require IEx
   use TeternikovWeb.ConnCase
 
   alias Teternikov.Pages
+  alias Teternikov.Coherence.User
+  alias Teternikov.Repo
 
   @create_attrs %{body: "some body", title: "some title", url: "some url"}
   @update_attrs %{body: "some updated body", title: "some updated title", url: "some updated url"}
@@ -10,6 +13,21 @@ defmodule TeternikovWeb.AdminPageControllerTest do
   def fixture(:page) do
     {:ok, page} = Pages.create_page(@create_attrs)
     page
+  end
+
+  defp create_page(_) do
+    page = fixture(:page)
+    {:ok, page: page}
+  end
+
+  defp login(%{conn: conn}) do
+    user = User.changeset(%User{}, %{name: "test", email: "test@example.com", password: "test", password_confirmation: "test"})
+    |> Repo.insert!
+    {:ok, conn: assign(conn, :current_user, user)}
+  end
+
+  setup %{conn: conn} do
+    login(%{conn: conn})
   end
 
   describe "index" do
@@ -32,7 +50,11 @@ defmodule TeternikovWeb.AdminPageControllerTest do
 
       assert %{id: id} = redirected_params(conn)
       assert redirected_to(conn) == admin_page_path(conn, :show, id)
-
+      saved_assigns = conn.assigns
+      conn = 
+        conn
+        |> recycle()
+        |> Map.put(:assigns, saved_assigns)
       conn = get(conn, admin_page_path(conn, :show, id))
       assert html_response(conn, 200) =~ "Show Page"
     end
@@ -58,7 +80,11 @@ defmodule TeternikovWeb.AdminPageControllerTest do
     test "redirects when data is valid", %{conn: conn, page: page} do
       conn = put(conn, admin_page_path(conn, :update, page), page: @update_attrs)
       assert redirected_to(conn) == admin_page_path(conn, :show, page)
-
+      saved_assigns = conn.assigns
+      conn = 
+        conn
+        |> recycle()
+        |> Map.put(:assigns, saved_assigns)
       conn = get(conn, admin_page_path(conn, :show, page))
       assert html_response(conn, 200) =~ "some updated body"
     end
@@ -75,15 +101,14 @@ defmodule TeternikovWeb.AdminPageControllerTest do
     test "deletes chosen page", %{conn: conn, page: page} do
       conn = delete(conn, admin_page_path(conn, :delete, page))
       assert redirected_to(conn) == admin_page_path(conn, :index)
-
+      saved_assigns = conn.assigns
+      conn = 
+        conn
+        |> recycle()
+        |> Map.put(:assigns, saved_assigns)
       assert_error_sent(404, fn ->
         get(conn, admin_page_path(conn, :show, page))
       end)
     end
-  end
-
-  defp create_page(_) do
-    page = fixture(:page)
-    {:ok, page: page}
   end
 end

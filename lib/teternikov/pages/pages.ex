@@ -18,7 +18,7 @@ defmodule Teternikov.Pages do
 
   """
   def list_pages do
-    Repo.all(from p in Page, order_by: p.url)
+    Repo.all(from(p in Page, order_by: p.url))
   end
 
   @doc """
