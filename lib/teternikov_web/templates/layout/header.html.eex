@@ -21,6 +21,8 @@
     <![endif]-->
     <script src="//vk.com/js/api/openapi.js?142"></script>
     <script src="//vk.com/js/api/share.js?94" charset="windows-1251"></script>
+    <script>VK.init({apiId: 5930687, onlyWidgets: true});</script>
+
   </head>
   <body class='hold-transition skin-blue layout-top-nav'>
     <!-- BEGIN BACK TO TOP -->
