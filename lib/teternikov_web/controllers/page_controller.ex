@@ -3,7 +3,7 @@ defmodule TeternikovWeb.PageController do
 
   alias Teternikov.Pages
 
-  plug(:put_layout, "one-solid-box.html")
+  plug(:put_layout, "one-solid-box-with-social-footer.html")
 
   def show(conn, %{"path" => path}) do
     page = Pages.get_page_by_url!(Path.join(path))

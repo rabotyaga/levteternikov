@@ -1,0 +1,29 @@
+<%= render TeternikovWeb.LayoutView, "header.html", assigns %>
+  <div class='row'>
+    <div class='box box-solid'>
+      <div class='box-body'>
+        <%= render @view_module, @view_template, assigns %>
+      </div>
+      <div class='box-footer'>
+        <div id='vk_like'></div>
+        <script>
+          VK.Widgets.Like("vk_like", {type: "button"});
+        </script>
+        <script>
+          document.write(VK.Share.button(false,{type: "link", text: "Сохранить"}));
+        </script>
+        <div>
+          &nbsp;
+        </div>
+        <div class='fb-like'></div>
+        <div>
+          &nbsp;
+        </div>
+        <div id='vk_comments'></div>
+        <script>
+          VK.Widgets.Comments("vk_comments", {limit: 10, attach: "*"});
+        </script>
+      </div>
+    </div>
+  </div>
+<%= render TeternikovWeb.LayoutView, "footer.html", assigns %>
